@@ -38,12 +38,13 @@ app.use('/slack/events', slackEvents.expressMiddleware());
 app.use(bodyParser.urlencoded({ extended : true }));
 app.use(express.static('public'));
 http.createServer(app).listen(port, () => {
+  console.log(process.env)
   console.log(`server listening on port ${port}`);
 });
 
 
 // Only run the real time server if it's activated
-if (process.env.START_SLACK_RTM) slackRtm.start()
+if (process.env.START_SLACK_RTM === 'true') slackRtm.start()
 
 ///////////////////////////////////////////////
 /////                Web UI               /////
