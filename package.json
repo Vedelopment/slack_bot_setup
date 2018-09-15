@@ -1,0 +1,29 @@
+{
+  "name": "slack_bot_setup",
+  "version": "1.0.0",
+  "description": "**Goal**",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/johnson-rl/slack_bot_setup.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/johnson-rl/slack_bot_setup/issues"
+  },
+  "homepage": "https://github.com/johnson-rl/slack_bot_setup#readme",
+  "dependencies": {
+    "@slack/client": "^4.6.0",
+    "@slack/events-api": "^2.1.0",
+    "@slack/interactive-messages": "^1.0.1",
+    "body-parser": "^1.18.3",
+    "dotenv": "^6.0.0",
+    "express": "^4.16.3",
+    "install": "^0.12.1",
+    "npm": "^6.4.1"
+  }
+}
