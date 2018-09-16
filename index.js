@@ -34,7 +34,7 @@ const slackEvents = createEventAdapter(process.env.SLACK_SIGNING_SECRET);
 ///////////////////////////////////////////////
 
 // Starting Express Server
-app.use('/slack/events', slackEvents.expressMiddleware());
+// app.use('/slack/events', slackEvents.expressMiddleware());
 app.use(bodyParser.urlencoded({ extended : true }));
 app.use(express.static('public'));
 http.createServer(app).listen(port, () => {
@@ -60,7 +60,11 @@ app.get('/', function(req, res){
 /////         Incoming Webhooks           /////
 ///////////////////////////////////////////////
 
+app.get('/slack/events', (req, res)=>{
+  console.log(req.body)
+  res.send(req.body)
 
+})
 
 
 
