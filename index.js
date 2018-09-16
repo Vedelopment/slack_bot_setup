@@ -61,7 +61,7 @@ app.get('/', function(req, res){
 ///////////////////////////////////////////////
 
 app.post('/slack/events', (req, res)=>{
-  console.log(req)
+  console.log(req.payload, req.body, req.challenge, req.token)
   res.send(req.body)
 })
 
