@@ -60,10 +60,9 @@ app.get('/', function(req, res){
 /////         Incoming Webhooks           /////
 ///////////////////////////////////////////////
 
-app.get('/slack/events', (req, res)=>{
+app.post('/slack/events', (req, res)=>{
   console.log(req.body)
   res.send(req.body)
-
 })
 
 
