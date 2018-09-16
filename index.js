@@ -34,7 +34,7 @@ const slackEvents = createEventAdapter(process.env.SLACK_SIGNING_SECRET);
 ///////////////////////////////////////////////
 
 // Starting Express Server
-// app.use('/slack/events', slackEvents.expressMiddleware());
+app.use('/slack/events', slackEvents.expressMiddleware());
 app.use(bodyParser.urlencoded({ extended : true }));
 app.use(express.static('public'));
 http.createServer(app).listen(port, () => {
@@ -60,13 +60,15 @@ app.get('/', function(req, res){
 /////         Incoming Webhooks           /////
 ///////////////////////////////////////////////
 
-app.post('/slack/events', (req, res)=>{
-  console.log(req.body.payload, req.body.challenge, req.body.token)
-  res.send(req.body.challenge)
-})
 
 
 
 ///////////////////////////////////////////////
 /////            Slack Events             /////
 ///////////////////////////////////////////////
+
+slackEvents.on('error', console.error)
+
+slackEvents.on('app_mention', (event)=>{
+  console.log(`Incoming Transmisson from user ${event.user} in ${event.channel} channel: ${event.text}`)
+})
